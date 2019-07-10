@@ -72,7 +72,12 @@ const scriptLoader = (...scriptSrcs) => WrappedComponent => {
         ...this.state,
       };
 
-      return <WrappedComponent ref={ref => (this.wrappedComponent = ref)} {...props} />;
+      return (
+        <WrappedComponent
+          ref={ref => (this.refs = {childRef: ref})} // eslint-disable-line
+          {...props}
+        />
+      );
     }
   }
 
