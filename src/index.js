@@ -72,7 +72,7 @@ const scriptLoader = (...scriptSrcs) => WrappedComponent => {
         ...this.state,
       };
 
-      return <WrappedComponent {...props} />;
+      return <WrappedComponent ref={ref => (this.wrappedComponent = ref)} {...props} />;
     }
   }
 
